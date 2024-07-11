@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= coinsData.name %> Data</title>
+    <style>
+        body{
+            background-image: url(/images/bgimage.jpg);
+            /* background-color: #050a30; */
+            background-size: cover;
+            color: white;
+        }
+        .container{
+            display:flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height:40vh;
+        }
+        p{
+            width:400px;
+            text-align: center;
+            font-size: 1.05rem;
+        }
+        .dataContainer{
+            display:flex;
+            justify-content: space-around;
+
+        }
+        .pdf{
+            display:flex;
+            justify-content: center;
+            margin-top: 100px;
+        }
+        img{
+            border-radius: 50%;
+        }
+        .foot{
+            display:flex;
+            justify-content: space-around;
+            margin-top: 30px;
+            background-color: #1a1f46;
+            padding:10px;
+        }
+    </style>
+</head>
+<body>
+    <!-- navbar -->
+    <section id="navbar">
+        <div class="container">
+            <% if(coinsData.logo){ %>
+            <img src="<%= coinsData.logo %> " alt="<%= coinsData.name %>" width="80" height="80">
+            <% } %>
+            <% if(coinsData.description){ %>
+            <p><%= coinsData.description %></p>
+            <% } %>
+        </div>
+    </section>
+    <!-- today's data and market cap -->
+    <section id="currentData">
+        <div class="dataContainer">
+            <div class="data">
+                <% if(basicData.open){ %>
+                open: <%= (basicData.open).toFixed(2) %>$
+                <% } %>
+            </div>
+            <div class="data">
+                <% if(basicData.low){ %>
+                low: <%= (basicData.low).toFixed(2) %>$
+                <% } %>
+            </div>
+            <div class="data">
+                <% if(basicData.high){ %>
+                high: <%= (basicData.high).toFixed(2) %>$
+                <% } %>
+            </div>
+            <div class="data">
+                <% if(basicData.close){ %>
+                close: <%= (basicData.close).toFixed(2) %>$
+                <% } %>
+            </div>
+            <div class="data">
+                <% if(basicData.volume){ %>
+                volume: <%= (basicData.volume).toFixed(2) %>$
+                <% } %>
+            </div>
+            <div class="data">
+                <% if(basicData.market_cap){ %>
+                market cap: <%= (basicData.market_cap).toFixed(2) %>$
+                <% } %>
+            </div>
+        </div>
+    </section>
+    <!-- data -->
+    <section id="data">
+        <% if(coinsData.whitepaper.link){ %>
+        <div class="pdf">
+            <iframe src="<%= coinsData.whitepaper.link %>" 
+            style="width:800px;height:600px;"    frameborder="0"></iframe>
+        </div>
+        <% } %>
+    </section>
+    <!-- footer -->
+    <section id="footer">
+        <div class="foot">
+            <% if(coinsData.links.reddit){ %>
+            <a href="<%= coinsData.links.reddit[0] %>"><img src="/images/reddit_logo.png" alt="reddit_logo" width="50" height="50"></a>
+            <% } %>
+            <% if(coinsData.links.source_code){ %>
+            <a href="<%= coinsData.links.source_code[0] %>"><img src="/images/source_code.png" alt="source_code" width="50" height="50"></a>
+            <% } %>
+            <% if(coinsData.links.website){ %>
+            <a href="<%= coinsData.links.website[0] %>"><img src="<%= coinsData.logo %>" alt="website_log" width="50" height="50"></a>
+            <% } %>
+            <% if(coinsData.links.youtube){ %>
+            <a href="<%= coinsData.links.youtube[0] %>"><img src="/images/youtube_logo.png" alt="youtube_logo" width="50" height="50"></a>
+            <% } %>
+        </div>
+    </section>
+</body>
+</html>

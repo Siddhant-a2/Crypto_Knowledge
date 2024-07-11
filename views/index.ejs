@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CryptoKnowledge</title>
+    <link rel="stylesheet" href="/styles/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- navbar code starts from here -->
+    <section id="navbar">
+        <div id="nav">
+            <!-- <h1>hello</h1> -->
+             <div id="bitcoin">
+                <!-- logo -->
+                <img src="https://static.coinpaprika.com/coin/btc-bitcoin/logo.png" alt="bitcoin-logo">
+                <!-- data -->
+                <p>Bitcoin(BTC)</p>
+                <p>LOW: <%= l[0] %>$<br>HIGH: <%= h[0] %>$</p>
+            </div>
+             <div id="ethereum">
+                <!-- logo -->
+                <img src="https://static.coinpaprika.com/coin/eth-ethereum/logo.png" alt="ethereum-logo">
+                <!-- data -->
+                <p>Ethereum(ETH)</p>
+                <p>LOW: <%= l[1] %>$<br>HIGH: <%= h[1] %>$</p>
+            </div>
+             <div id="tether">
+                <!-- logo -->
+                <img src="https://static.coinpaprika.com/coin/usdt-tether/logo.png" alt="tether-logo">
+                <!-- data -->
+                <p>Tether(USDT)</p>
+                <p>LOW: <%= l[2] %>$<br>HIGH: <%= h[2] %>$</p>
+            </div>
+             <div id="benance">
+                <!-- logo -->
+                <img src="https://static.coinpaprika.com/coin/bnb-binance-coin/logo.png" alt="binance-log">
+                <!-- data -->
+                <p>Binance Coin(BNB)</p>
+                <p>LOW: <%= l[3] %>$<br>HIGH: <%= h[3] %>$</p>
+            </div>
+             <div id="solana">
+                <!-- logo -->
+                <img src="https://static.coinpaprika.com/coin/sol-solana/logo.png" alt="solana-logo">
+                <!-- data -->
+                <p>Solana(SOL)</p>
+                <p>LOW: <%= l[4] %>$<br>HIGH: <%= h[4] %>$</p>
+            </div>
+             <div id="lido">
+                <!-- logo -->
+                <img src="https://static.coinpaprika.com/coin/steth-lido-staked-ether/logo.png" alt="lido-logo">
+                <!-- data -->
+                <p>Lido Staked Ether(STETH)</p>
+                <p>LOW: <%= l[5] %>$<br>HIGH: <%= h[5] %>$</p>
+            </div>
+        </div>
+    </section>
+    <!-- navbar code ends here -->
+    <!-- search option code starts from here  -->
+    <section id="search">
+        <div class="container">
+            <h1>Information about Cryptocurrencies at a single click!</h1>
+        </div>
+        <h3>search here:</h3>
+        <div class="searchContainer">
+            <form action="/info" method="post">
+                <!-- <label for="search">Search here:</label> -->
+                <input  type="search" list="coins" name="fname" >
+                <datalist id="coins">
+                    <% for(let i=0;i<nm.length;i++){ %>
+                        <option value="<%= identity[i] %>"><%= nm[i] %></option>
+                        <% } %>
+                </datalist>
+                <input type="submit" value="search">
+            </form>
+        </div>
+    </section>
+    <!-- search option code ends here -->
+</body>
+</html>
